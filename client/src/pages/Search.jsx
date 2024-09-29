@@ -1,18 +1,43 @@
 import React from 'react'
 import axios from 'axios'
+import { useState } from "react";
+import "./Search.css"
 
 function Search() {
+    const [searchQuery, setSearchQuery] = useState("")
+
+    const handleChange = (event) => {
+        setSearchQuery(event.target.value);
+    }
+
+    const handleSubmit = async (e) => {
+        event.preventDefault()
+        console.log(searchQuery)
+        try {
+            const response = await axios.post('http://localhost:5000/submit', {
+                text: searchQuery,
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error submitting the form:', error);
+        }
+
+        // api stuff here i guess?
+    }
     
     return (
     <>
         <h1 className="header">hello?</h1>
-        <form>
-            <div>
-                <label className="tkr">Enter TKR here...</label>
-                bruh
-
-            </div>
-
+        <form onSubmit={handleSubmit}>
+            <label className="tkr">Enter TKR here: </label>
+            <br></br>
+            <input 
+            type="text" 
+            placeholder="Ex. AAPL, AMZN..." 
+            value={searchQuery}
+            onChange={handleChange}
+            />
+            <button type="submit">Search</button>
         </form>
 
 

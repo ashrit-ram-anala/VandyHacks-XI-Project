@@ -1,4 +1,5 @@
 from flask import Flask,request
+from flask_cors import CORS
 import sqlalchemy as sa 
 from sqlalchemy.orm import DeclarativeBase 
 from openai import OpenAI
@@ -16,6 +17,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 app = Flask(__name__)
+CORS(app) 
 
 @app.route('/')
 def index():
@@ -39,6 +41,11 @@ def remove_emoji(text):
     text = RE_EMOJI.sub(r'', text)
     #returns the emojis of the format [emoji](img|string1|string2)
     return re.sub(r'\[.*?\)', '', text)
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    ticker = request.json
+    return json.dumps({"message": "Data received", "data": ticker})
 class ExampleSchema(mongoose.Document):
     ticker = mongoose.StringField(required=True)
     sentiments = mongoose.ListField(mongoose.IntField(), required=True)
