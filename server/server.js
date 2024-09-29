@@ -31,6 +31,7 @@ app.post("/api/save-tkr", (req, res) => {
   // .then((existingTkr) => {
   if (existingTkr) {
     // if tker already logged
+    console.log(existingTkr)
     existingTkr.sentiment.push(latestSentiment);
     existingTkr.latestSentiment = latestSentiment;
     existingTkr.save();
@@ -47,8 +48,7 @@ app.post("/api/save-tkr", (req, res) => {
   // })
 });
 
-app.get("/api/sentiment/:tkr", (req, res) => {
-  const { tkr } = req.params;
+app.get("/api/sentiment/", (req, res) => {
   userModel.findOne({ tkr })
   .then((existingTkr) => {
   if (existingTkr) {

@@ -1,20 +1,50 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import Chart from "chart.js/auto";
+import axios from 'axios'
+import { CategoryScale } from "chart.js";
 
-const chartData = {
-  labels: ["2016", "2017", "2018", "2019", "2020"],
-  datasets: [
-    {
-      label: "Users Gained",
-      data: [500, 100, 400, 200, 300],
-      fill: false,
-      borderColor: "rgba(75,192,192,1)",
-      backgroundColor: "rgba(0,0,0,0.1)",
-    },
-  ],
-};
+
 
 function LineChart() {
+  Chart.register(CategoryScale);
+  const [chartData,setCharData] = useState({
+    labels: ["2016", "2017", "2018", "2019", "2020"],
+    datasets: [
+      {
+        label: "Users Gained",
+        data: [],
+        fill: false,
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(0,0,0,0.1)",
+      },
+    ],
+  });
+
+let fetched=[10,20,70]
+
+  useEffect(()=>{
+    axios.get("http://localhost:8080/api/sentiment/:AAPL")
+    .then((response)=>{
+     fetched = response.data
+     console.log(fetched)
+    })
+    setCharData({
+      labels: [],
+      datasets: [
+        {
+          label: "Sentiment",
+          data: fetched,
+          fill: false,
+          borderColor: "rgba(75,192,192,1)",
+          backgroundColor: "rgba(0,0,0,0.1)",
+        },
+      ],
+    });
+  },[])
+
+
+
   return (
     <div className="chart-container">
       <h2 style={{ textAlign: "center" }}>Stock Performances</h2>
