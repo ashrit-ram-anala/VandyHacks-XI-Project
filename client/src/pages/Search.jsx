@@ -29,8 +29,7 @@ function Search() {
     <>
         <h1 className="header">hello?</h1>
         <form onSubmit={handleSubmit}>
-            <label className="tkr">Enter TKR here: </label>
-            <br></br>
+            <label className="tkr">Enter TKR here:</label>
             <input 
             type="text" 
             placeholder="Ex. AAPL, AMZN..." 
