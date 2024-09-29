@@ -1,21 +1,32 @@
-from flask import Flask
+from flask import Flask,request
+import sqlalchemy as sa 
+from sqlalchemy.orm import DeclarativeBase 
 from openai import OpenAI
 import requests
 import time
 import json
 import threading
 import re
-import configparser
 import praw
 import threading
 import yfinance as yf
-
+import requests
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return "Flask server is running!"
 
+@app.route('/add_todo', methods=['POST'])
+def add_todo():
+    todo_data = request.get_json()
+    new_todo = Todo(content=todo_data['content'])
+    sa.session.add(new_todo)
+    sa.session.commit()
+    return 'Done', 201
+class Todo(DeclarativeBase):
+    id = sa.Column(sa.Integer, primary_key=True)
+    type = sa.Column(sa.String)
 def remove_emoji(text):
     #removes regular emojis
     RE_EMOJI = re.compile(u'([\U00002600-\U000027BF])|([\U0001f300-\U0001f64F])|([\U0001f680-\U0001f6FF])')
@@ -64,7 +75,7 @@ def getComments(subreddit, text) -> None:
 
 # Function to send the JSON data via a POST request to the Node.js backend
 def send_json_to_nodejs():
-    while True:
+    while True and valid_ticker:
         # Fetch the JSON data from the other server
         json_data = getComments(reddit.subreddit("all"), company_name)
 
@@ -96,12 +107,15 @@ if __name__ == "__main__":
         ratelimit_seconds=.75)
 
     YOUR_API_KEY = "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"
-    ticker = ""
-    //accept input from react
+    ticker = "MSFT"
+    valid_ticker=True
+    #accept input from react
     company = yf.Ticker(ticker)
-
-    company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
-
+    try:
+        company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
+    except:
+        valid_ticker=False
+        print("Ticker does not exist")
     # Start the POST request function in a background thread
     post_request_thread = threading.Thread(target=send_json_to_nodejs)
     post_request_thread.daemon = True  # Ensure thread exits when Flask app stops
