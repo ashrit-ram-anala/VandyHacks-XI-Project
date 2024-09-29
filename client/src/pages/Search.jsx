@@ -27,7 +27,7 @@ function Search() {
     
     return (
     <>
-        <h1 className="header">hello?</h1>
+        <h1 className="header">Stocks and Stuff</h1>
         <form onSubmit={handleSubmit}>
             <label className="tkr">Enter TKR here:</label>
             <input 
