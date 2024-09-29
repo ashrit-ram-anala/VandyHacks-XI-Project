@@ -10,6 +10,11 @@ import praw
 import threading
 import yfinance as yf
 
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Flask server is running!"
 
 def remove_emoji(text):
     #removes regular emojis
@@ -46,18 +51,9 @@ def getComments(subreddit, text) -> None:
             )
             analysis = response.choices[0].message.content
             try:
-                comment_json: dict[str, str] = {
-                    "id": comment.id,
-                    "name": comment.name,
-                    "author": comment.author.name,
-                    "body": comment.body,
-                    "subreddit": comment.subreddit.display_name,
-                    "upvotes": comment.ups,
-                    "downvotes": comment.downs,
-                    "over_18": comment.over_18,
-                    "timestamp": comment.created_utc,
-                    "permalink": comment.permalink,
-                    "sentiment": analysis
+                comment_json = {
+                    "ticker": ticker,
+                    "latest_sentiment": analysis
                 }
                 
                 # producer.send("redditcomments", value=comment_json)
@@ -100,7 +96,9 @@ if __name__ == "__main__":
         ratelimit_seconds=.75)
 
     YOUR_API_KEY = "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"
-    company = yf.Ticker("AMZN")
+    ticker = ""
+    //accept input from react
+    company = yf.Ticker(ticker)
 
     company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
 
