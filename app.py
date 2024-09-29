@@ -1,14 +1,76 @@
 from flask import Flask
+from openai import OpenAI
 import requests
 import time
 import json
 import threading
+import re
+import configparser
+import praw
+import threading
+import yfinance as yf
+
+
+def remove_emoji(text):
+    #removes regular emojis
+    RE_EMOJI = re.compile(u'([\U00002600-\U000027BF])|([\U0001f300-\U0001f64F])|([\U0001f680-\U0001f6FF])')
+    text = RE_EMOJI.sub(r'', text)
+    #returns the emojis of the format [emoji](img|string1|string2)
+    return re.sub(r'\[.*?\)', '', text)
+
+                                    
+def getComments(subreddit, text) -> None:   
+    client = OpenAI(api_key=YOUR_API_KEY, base_url="https://api.perplexity.ai") 
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are an expert in marketing and assessing the sentiment of reviews. I am going to give you reviews to respond with only 'positive', 'negative', or 'neutral' towards the use of " + text + ". If you cannot create content about the review, rate it as neutral"
+            ),
+        },
+        {
+            "role": "user",
+            "content": (
+                ""
+            ),
+        },
+    ]
+
+    for comment in subreddit.stream.comments():
+        if text in comment.body.lower():
+            comment.body = remove_emoji(comment.body)
+            messages[1]["content"] = comment.body
+            response = client.chat.completions.create(
+                model="llama-3.1-8b-instruct",
+                messages=messages,
+            )
+            analysis = response.choices[0].message.content
+            try:
+                comment_json: dict[str, str] = {
+                    "id": comment.id,
+                    "name": comment.name,
+                    "author": comment.author.name,
+                    "body": comment.body,
+                    "subreddit": comment.subreddit.display_name,
+                    "upvotes": comment.ups,
+                    "downvotes": comment.downs,
+                    "over_18": comment.over_18,
+                    "timestamp": comment.created_utc,
+                    "permalink": comment.permalink,
+                    "sentiment": analysis
+                }
+                
+                # producer.send("redditcomments", value=comment_json)
+                return json.dumps(comment_json)
+            except Exception as e:
+                print("An error occurred:", str(e))
+                return json
 
 # Function to send the JSON data via a POST request to the Node.js backend
 def send_json_to_nodejs():
     while True:
         # Fetch the JSON data from the other server
-
+        json_data = getComments(reddit.subreddit("all"), company_name)
 
 
 
@@ -29,6 +91,19 @@ def send_json_to_nodejs():
 
 # Run the Flask app and start the POST request loop in a separate thread
 if __name__ == "__main__":
+    reddit = praw.Reddit(
+        client_id="_lXa7uHKe5fOpKVnOQlktA",
+        client_secret="OsWBMbhI5QO6fQdBw-WsGYnwDiHeiw",
+        password="DJAJASFINANCIALSERVICES",
+        user_agent="testscript by u/fakebot3",
+        username="Sad_Warning869",
+        ratelimit_seconds=.75)
+
+    YOUR_API_KEY = "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"
+    company = yf.Ticker("AMZN")
+
+    company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
+
     # Start the POST request function in a background thread
     post_request_thread = threading.Thread(target=send_json_to_nodejs)
     post_request_thread.daemon = True  # Ensure thread exits when Flask app stops
