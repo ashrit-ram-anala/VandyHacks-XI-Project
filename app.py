@@ -1,4 +1,5 @@
 from flask import Flask,request
+from flask_cors import CORS
 import sqlalchemy as sa 
 from sqlalchemy.orm import DeclarativeBase 
 from openai import OpenAI
@@ -12,6 +13,7 @@ import threading
 import yfinance as yf
 import requests
 app = Flask(__name__)
+CORS(app) 
 
 @app.route('/')
 def index():
@@ -33,6 +35,12 @@ def remove_emoji(text):
     text = RE_EMOJI.sub(r'', text)
     #returns the emojis of the format [emoji](img|string1|string2)
     return re.sub(r'\[.*?\)', '', text)
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    ticker = request.json
+    # Process the data (e.g., save it, print it, etc.)
+    return json.dumps({"message": "Data received", "data": ticker})
 
                                     
 def getComments(subreddit, text) -> None:   
