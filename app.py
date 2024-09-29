@@ -39,7 +39,6 @@ def remove_emoji(text):
 @app.route('/submit', methods=['POST'])
 def submit():
     ticker = request.json
-    # Process the data (e.g., save it, print it, etc.)
     return json.dumps({"message": "Data received", "data": ticker})
 
                                     
@@ -89,20 +88,20 @@ def send_json_to_nodejs():
 
 
 
-        if json_data:
-            try:
-                # Send a POST request with the JSON data to the Node.js endpoint
-                headers = {'Content-Type': 'application/json'}
-                response = requests.post('http://localhost:8080/api/save-tkr', data=json_data, headers=headers)
-                if response.status_code == 200:
-                    print(f"POST request successful: {response.json()}")
-                else:
-                    print(f"Failed POST request. Status code: {response.status_code}")
+        # if json_data:
+        #     try:
+        #         # Send a POST request with the JSON data to the Node.js endpoint
+        #         headers = {'Content-Type': 'application/json'}
+        #         response = requests.post('http://localhost:8080/api/save-tkr', data=json_data, headers=headers)
+        #         if response.status_code == 200:
+        #             print(f"POST request successful: {response.json()}")
+        #         else:
+        #             print(f"Failed POST request. Status code: {response.status_code}")
 
-            except Exception as e:
-                print(f"Error sending POST request: {e}")
+        #     except Exception as e:
+        #         print(f"Error sending POST request: {e}")
 
-        time.sleep(0.8)  # Wait 5 seconds before fetching and sending data again
+        # time.sleep(0.8)  # Wait 5 seconds before fetching and sending data again
 
 # Run the Flask app and start the POST request loop in a separate thread
 if __name__ == "__main__":
