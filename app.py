@@ -11,12 +11,18 @@ import praw
 import threading
 import yfinance as yf
 import requests
+import mongoengine as mongoose
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return "Flask server is running!"
-
+@app.route('/api/save-tkr')
+def send_json():
+    return getComments(reddit.subreddit("all"), company_name)
 @app.route('/add_todo', methods=['POST'])
 def add_todo():
     todo_data = request.get_json()
@@ -33,9 +39,16 @@ def remove_emoji(text):
     text = RE_EMOJI.sub(r'', text)
     #returns the emojis of the format [emoji](img|string1|string2)
     return re.sub(r'\[.*?\)', '', text)
+class ExampleSchema(mongoose.Document):
+    ticker = mongoose.StringField(required=True)
+    sentiments = mongoose.ListField(mongoose.IntField(), required=True)
+    latest_sentiment = mongoose.StringField(required=True)
 
-                                    
-def getComments(subreddit, text) -> None:   
+    meta = {
+        'collection': 'sentiment'  # Name of the collection in MongoDB
+    }
+
+def getComments(subreddit, text) -> None:  
     client = OpenAI(api_key=YOUR_API_KEY, base_url="https://api.perplexity.ai") 
     messages = [
         {
@@ -51,7 +64,7 @@ def getComments(subreddit, text) -> None:
             ),
         },
     ]
-
+    
     for comment in subreddit.stream.comments():
         if text in comment.body.lower():
             comment.body = remove_emoji(comment.body)
@@ -61,40 +74,24 @@ def getComments(subreddit, text) -> None:
                 messages=messages,
             )
             analysis = response.choices[0].message.content
+            print(analysis)
+            if not (analysis == 'Neutral' or analysis == 'Positive' or analysis == 'Negative'):
+                continue
             try:
-                comment_json = {
-                    "ticker": ticker,
-                    "latest_sentiment": analysis
-                }
-                
+                number = 0 if analysis == 'Neutral' else 1 if analysis == 'Positive' else -1
+                sentiments.append(number)
                 # producer.send("redditcomments", value=comment_json)
-                return json.dumps(comment_json)
+                comment_json = {
+                    "tkr": ticker,
+                    "sentiment": sentiments,
+                    "latestSentiment": analysis
+                }
+                collection_name.insert_one(comment_json)
+                print(number)
+                # Save the document to the database
             except Exception as e:
                 print("An error occurred:", str(e))
                 return json
-
-# Function to send the JSON data via a POST request to the Node.js backend
-def send_json_to_nodejs():
-    while True and valid_ticker:
-        # Fetch the JSON data from the other server
-        json_data = getComments(reddit.subreddit("all"), company_name)
-
-
-
-        if json_data:
-            try:
-                # Send a POST request with the JSON data to the Node.js endpoint
-                headers = {'Content-Type': 'application/json'}
-                response = requests.post('http://localhost:8080/api/save-tkr', data=json_data, headers=headers)
-                if response.status_code == 200:
-                    print(f"POST request successful: {response.json()}")
-                else:
-                    print(f"Failed POST request. Status code: {response.status_code}")
-
-            except Exception as e:
-                print(f"Error sending POST request: {e}")
-
-        time.sleep(0.8)  # Wait 5 seconds before fetching and sending data again
 
 # Run the Flask app and start the POST request loop in a separate thread
 if __name__ == "__main__":
@@ -105,22 +102,32 @@ if __name__ == "__main__":
         user_agent="testscript by u/fakebot3",
         username="Sad_Warning869",
         ratelimit_seconds=.75)
-
+    sentiments = []
     YOUR_API_KEY = "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"
-    ticker = "MSFT"
+    ticker = "AMZN"
     valid_ticker=True
+    
     #accept input from react
     company = yf.Ticker(ticker)
+    uri =   "mongodb+srv://ashritramanala:X2f1pLPy48ZFal1s@vandyhackscluster.h7isr.mongodb.net/?retryWrites=true&w=majority&appName=VandyHacksCluster"
+    client = MongoClient(uri, server_api=ServerApi('1'))
+    db = client['test']
+    collection_name = db['sentiments']
+           # Save the document to the database
+    # example_document.save()
+    print("Document Saved")
     try:
         company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
+        getComments(subreddit=reddit.subreddit("all"),text=company_name)
     except:
         valid_ticker=False
         print("Ticker does not exist")
     # Start the POST request function in a background thread
-    post_request_thread = threading.Thread(target=send_json_to_nodejs)
-    post_request_thread.daemon = True  # Ensure thread exits when Flask app stops
-    post_request_thread.start()
-
-
+    # post_request_thread = threading.Thread(target=send_json_to_nodejs)
+    # post_request_thread.daemon = True  # Ensure thread exits when Flask app stops
+    # post_request_thread.start()
+    # mongoose.connect("mongodb+srv://ashritramanala:X2f1pLPy48ZFal1s@vandyhackscluster.h7isr.mon godb.net/?retryWrites=true&w=majority&appName=VandyHacksCluster")
+ 
     # Start the Flask app
     app.run(debug=True)
+
