@@ -1,0 +1,1180 @@
+{
+    "data": [
+        {
+            "Day": 23,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 23,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 2,
+            "Positive Amount": 1,
+            "Negative Amount": 4,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 23,
+            "Hour": 3,
+            "Positive Amount": 1,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 23,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 23,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 3,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 7,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 23,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 9,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 10,
+            "Positive Amount": 1,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 23,
+            "Hour": 12,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 13,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 14,
+            "Positive Amount": 0,
+            "Negative Amount": 3,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 15,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 23,
+            "Hour": 16,
+            "Positive Amount": 0,
+            "Negative Amount": 4,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 23,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 3,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 23,
+            "Hour": 18,
+            "Positive Amount": 0,
+            "Negative Amount": 3,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 23,
+            "Hour": 19,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 23,
+            "Hour": 20,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 7
+        },
+        {
+            "Day": 23,
+            "Hour": 21,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 23,
+            "Hour": 23,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 24,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 24,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 24,
+            "Hour": 2,
+            "Positive Amount": 1,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 3,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 8,
+            "Neutral Amount": 7
+        },
+        {
+            "Day": 24,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 24,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 24,
+            "Hour": 7,
+            "Positive Amount": 2,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 24,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 9,
+            "Positive Amount": 1,
+            "Negative Amount": 2,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 10,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 24,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 24,
+            "Hour": 12,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 24,
+            "Hour": 13,
+            "Positive Amount": 1,
+            "Negative Amount": 2,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 14,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 24,
+            "Hour": 15,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 16,
+            "Positive Amount": 1,
+            "Negative Amount": 2,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 24,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 24,
+            "Hour": 18,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 6
+        },
+        {
+            "Day": 24,
+            "Hour": 19,
+            "Positive Amount": 0,
+            "Negative Amount": 3,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 20,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 24,
+            "Hour": 21,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 24,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 24,
+            "Hour": 23,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 25,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 3,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 2,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 25,
+            "Hour": 3,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 7,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 25,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 25,
+            "Hour": 9,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 25,
+            "Hour": 10,
+            "Positive Amount": 0,
+            "Negative Amount": 5,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 25,
+            "Hour": 12,
+            "Positive Amount": 1,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 13,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 25,
+            "Hour": 14,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 15,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 16,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 25,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 2,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 25,
+            "Hour": 18,
+            "Positive Amount": 2,
+            "Negative Amount": 0,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 25,
+            "Hour": 19,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 25,
+            "Hour": 20,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 25,
+            "Hour": 21,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 25,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 25,
+            "Hour": 23,
+            "Positive Amount": 2,
+            "Negative Amount": 0,
+            "Neutral Amount": 7
+        },
+        {
+            "Day": 26,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 26,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 26,
+            "Hour": 2,
+            "Positive Amount": 1,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 26,
+            "Hour": 3,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 26,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 26,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 26,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 26,
+            "Hour": 7,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 26,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 26,
+            "Hour": 9,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 26,
+            "Hour": 10,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 26,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 26,
+            "Hour": 12,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 26,
+            "Hour": 13,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 26,
+            "Hour": 14,
+            "Positive Amount": 1,
+            "Negative Amount": 2,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 26,
+            "Hour": 15,
+            "Positive Amount": 1,
+            "Negative Amount": 2,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 26,
+            "Hour": 16,
+            "Positive Amount": 1,
+            "Negative Amount": 2,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 26,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 26,
+            "Hour": 18,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 1
+        },
+        {
+            "Day": 26,
+            "Hour": 19,
+            "Positive Amount": 1,
+            "Negative Amount": 0,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 26,
+            "Hour": 20,
+            "Positive Amount": 1,
+            "Negative Amount": 1,
+            "Neutral Amount": 2
+        },
+        {
+            "Day": 26,
+            "Hour": 21,
+            "Positive Amount": 1,
+            "Negative Amount": 1,
+            "Neutral Amount": 4
+        },
+        {
+            "Day": 26,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 3
+        },
+        {
+            "Day": 26,
+            "Hour": 23,
+            "Positive Amount": 0,
+            "Negative Amount": 1,
+            "Neutral Amount": 5
+        },
+        {
+            "Day": 27,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 2,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 3,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 7,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 9,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 10,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 12,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 13,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 14,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 15,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 16,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 18,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 19,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 20,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 21,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 27,
+            "Hour": 23,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 2,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 3,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 7,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 9,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 10,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 12,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 13,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 14,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 15,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 16,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 18,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 19,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 20,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 21,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 28,
+            "Hour": 23,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 0,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 1,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 2,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 3,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 4,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 5,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 6,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 7,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 8,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 9,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 10,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 11,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 12,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 13,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 14,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 15,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 16,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 17,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 18,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 19,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 20,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 21,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 22,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        },
+        {
+            "Day": 29,
+            "Hour": 23,
+            "Positive Amount": 0,
+            "Negative Amount": 0,
+            "Neutral Amount": 0
+        }
+    ]
+}
