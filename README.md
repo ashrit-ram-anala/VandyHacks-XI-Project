@@ -16,35 +16,36 @@ Smart-Stock is a web application made for **VandyHacks XI** that allows users to
 
 **Clone The Github Repository:**
 
-`
+```
 git clone <SSH/HTTPS Key>
-`
+```
 
 **Install Frontend Dependencies:**
 
-`
+```
 cd client
-`
-
-`
 npm i
-`
+```
 
 
 **Install Backend Dependencies:**
 
-`
+```
 cd ../server
-`
-
-`
 npm i
-`
+```
+
+**Go to package.json and add the following scripts:**
+
+```
+"start": "node server"
+"dev": "nodemon server"
+```
 
 **Run App With:**
 
-`
+```
 npm run dev
-`
+```
 
 **on both client and server directories**
