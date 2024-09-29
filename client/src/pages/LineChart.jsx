@@ -9,6 +9,7 @@ const chartData = {
       data: [500, 100, 400, 200, 300],
       fill: false,
       borderColor: "rgba(75,192,192,1)",
+      backgroundColor: "rgba(0,0,0,0.1)",
     },
   ],
 };
@@ -23,12 +24,16 @@ function LineChart() {
           plugins: {
             title: {
               display: true,
-              text: "Users Gained between 2016-2020",
+              text: "User Sentiment over Time",
             },
             legend: {
               display: false,
             },
           },
+        }}
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 1)", // background color
+          padding: "20px",
         }}
       />
     </div>
