@@ -85,7 +85,7 @@ def send_json_to_nodejs():
             try:
                 # Send a POST request with the JSON data to the Node.js endpoint
                 headers = {'Content-Type': 'application/json'}
-                response = requests.post('http://localhost:8080/api/save-tkr', data=json.dumps(json_data), headers=headers)
+                response = requests.post('http://localhost:8080/api/save-tkr', data=json_data, headers=headers)
                 if response.status_code == 200:
                     print(f"POST request successful: {response.json()}")
                 else:
