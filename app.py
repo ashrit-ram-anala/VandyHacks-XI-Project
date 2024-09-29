@@ -35,6 +35,13 @@ def add_todo():
 class Todo(DeclarativeBase):
     id = sa.Column(sa.Integer, primary_key=True)
     type = sa.Column(sa.String)
+def extract_text(log):
+    # Use a regular expression to find the text after 'text': ' and before the next '
+    match = re.search(r"'text': '([^']*)'", log)
+    if match:
+        return match.group(1)
+    return None
+
 def remove_emoji(text):
     #removes regular emojis
     RE_EMOJI = re.compile(u'([\U00002600-\U000027BF])|([\U0001f300-\U0001f64F])|([\U0001f680-\U0001f6FF])')
@@ -45,7 +52,23 @@ def remove_emoji(text):
 @app.route('/submit', methods=['POST'])
 def submit():
     ticker = request.json
+    
+    # print(json.dumps({"message": "Data received", "data": ticker}))
+    tkr = ticker.get('text')
+    valid_ticker=True
+    
+    #accept input from react
+    company = yf.Ticker(tkr)
+    try:
+        company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
+        getComments(subreddit=reddit.subreddit("all"),text=company_name)
+    except:
+        valid_ticker=False
+        print("Ticker does not exist")
+    # print(company)
+    # getComments(subreddit=reddit.subreddit("all"),text=company)
     return json.dumps({"message": "Data received", "data": ticker})
+
 class ExampleSchema(mongoose.Document):
     ticker = mongoose.StringField(required=True)
     sentiments = mongoose.ListField(mongoose.IntField(), required=True)
@@ -89,7 +112,7 @@ def getComments(subreddit, text) -> None:
                 sentiments.append(number)
                 # producer.send("redditcomments", value=comment_json)
                 comment_json = {
-                    "tkr": ticker,
+                    "tkr": tkr,
                     "sentiment": sentiments,
                     "latestSentiment": analysis
                 }
@@ -102,6 +125,7 @@ def getComments(subreddit, text) -> None:
 
 # Run the Flask app and start the POST request loop in a separate thread
 if __name__ == "__main__":
+    tkr = ""
     reddit = praw.Reddit(
         client_id="_lXa7uHKe5fOpKVnOQlktA",
         client_secret="OsWBMbhI5QO6fQdBw-WsGYnwDiHeiw",
@@ -111,24 +135,13 @@ if __name__ == "__main__":
         ratelimit_seconds=.75)
     sentiments = []
     YOUR_API_KEY = "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"
-    ticker = "AMZN"
-    valid_ticker=True
-    
-    #accept input from react
-    company = yf.Ticker(ticker)
     uri =   "mongodb+srv://ashritramanala:X2f1pLPy48ZFal1s@vandyhackscluster.h7isr.mongodb.net/?retryWrites=true&w=majority&appName=VandyHacksCluster"
     client = MongoClient(uri, server_api=ServerApi('1'))
     db = client['test']
     collection_name = db['sentiments']
            # Save the document to the database
     # example_document.save()
-    print("Document Saved")
-    try:
-        company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
-        getComments(subreddit=reddit.subreddit("all"),text=company_name)
-    except:
-        valid_ticker=False
-        print("Ticker does not exist")
+    print("Document Saved")    
     # Start the POST request function in a background thread
     # post_request_thread = threading.Thread(target=send_json_to_nodejs)
     # post_request_thread.daemon = True  # Ensure thread exits when Flask app stops
