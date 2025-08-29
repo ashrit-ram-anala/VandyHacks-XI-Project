@@ -23,7 +23,7 @@ function Search() {
         setSentiment(null);
         setPosts([]);
         try {
-            const response = await axios.post("http://127.0.0.1:5000/submit", {
+            const response = await axios.post("https://smart-stock-backend-seven.vercel.app/submit", {
                 text: searchQuery,
             });
             setSentiment(response.data);
