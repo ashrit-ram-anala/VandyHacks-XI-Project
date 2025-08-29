@@ -47,7 +47,7 @@ npm i
 npm run dev
 ```
 
-**Run Frontend App With:**
+**Run Backend App With:**
 ```
 python3 app.py
 ```
