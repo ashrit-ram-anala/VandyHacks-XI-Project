@@ -28,7 +28,6 @@ function Search() {
             });
             setSentiment(response.data);
             if (response.data.posts) {
-                // If backend returns per-post sentiment, use it. Otherwise, use overall for all.
                 if (response.data.post_sentiments) {
                     setPosts(response.data.posts.map((post, idx) => ({ ...post, sentiment: response.data.post_sentiments[idx] })).slice(0, 6));
                 } else if (response.data.overall) {
@@ -80,7 +79,6 @@ function Search() {
                                 </div>
                             ))}
                         </div>
-                        {/* Sentiment values chart below posts */}
                         {sentiment?.sentiment_values && (
                             <SentimentChart sentimentValues={sentiment.sentiment_values} />
                         )}

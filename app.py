@@ -7,8 +7,6 @@ from textblob import TextBlob
 from dotenv import load_dotenv
 import os
 
-
-
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 load_dotenv()
@@ -46,7 +44,6 @@ def submit():
                 neu += 1
             post_list.append({"title": title, "body": body})
             post_sentiments.append(sentiment)
-        # Determine overall sentiment
         if pos > neg:
             overall = "Bullish"
         elif neg > pos:
