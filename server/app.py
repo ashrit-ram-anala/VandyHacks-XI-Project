@@ -16,6 +16,10 @@ def remove_emoji(text):
     text = RE_EMOJI.sub(r'', text)
     return re.sub(r'\[.*?\)', '', text)
 
+@app.route('/')
+def index():
+    return "Flask server is running!"
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
