@@ -1,6 +1,6 @@
 # Smart-Stock
 
-Smart-Stock is a web application made for **VandyHacks XI** that allows users to enter specific stock tickers (AAPL, AMZN, etc.) and see the public sentiment for those stocks at that very moment as well as historical sentiment. The sentiments are tracked and displayed in real time with chart.js. Smart-Stock utilizes the Reddit API and performs **sentiment analysis** with the **Perplexity LLM** and Python **TextBlob**
+Smart-Stock is a web application made for **VandyHacks XI** that allows users to enter specific stock tickers (AAPL, AMZN, etc.) and see the public sentiment for those stocks at that very moment. The sentiments are tracked and displayed in real time with Chart.js. Smart-Stock utilizes the Reddit API and performs **Sentiment Analysis** with Python **TextBlob**
 
 # Overview
 
@@ -10,7 +10,7 @@ Smart-Stock is a web application made for **VandyHacks XI** that allows users to
 
 ## Backend
 
-#### Node.JS + Express.JS, Flask (Sentiment Analysis), MongoDB
+#### Flask, TextBlob (Sentiment Analysis)
 
 # Installation
 
@@ -27,7 +27,6 @@ cd client
 npm i
 ```
 
-
 **Install Backend Dependencies:**
 
 ```
@@ -42,10 +41,13 @@ npm i
 "dev": "nodemon server"
 ```
 
-**Run App With:**
+**Run Frontend App With:**
 
 ```
 npm run dev
 ```
 
-**on both client and server directories**
+**Run Frontend App With:**
+```
+python3 app.py
+```

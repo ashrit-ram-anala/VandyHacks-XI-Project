@@ -1,153 +1,79 @@
-from flask import Flask,request
+from flask import Flask, request
 from flask_cors import CORS
-import sqlalchemy as sa 
-from sqlalchemy.orm import DeclarativeBase 
-from openai import OpenAI
-import requests
-import time
 import json
-import threading
 import re
 import praw
-import threading
-import yfinance as yf
-import requests
-import mongoengine as mongoose
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
+from textblob import TextBlob
+from dotenv import load_dotenv
+import os
+
+
 
 app = Flask(__name__)
-CORS(app) 
-
-@app.route('/')
-def index():
-    return "Flask server is running!"
-@app.route('/api/save-tkr')
-def send_json():
-    return getComments(reddit.subreddit("all"), company_name)
-@app.route('/add_todo', methods=['POST'])
-def add_todo():
-    todo_data = request.get_json()
-    new_todo = Todo(content=todo_data['content'])
-    sa.session.add(new_todo)
-    sa.session.commit()
-    return 'Done', 201
-class Todo(DeclarativeBase):
-    id = sa.Column(sa.Integer, primary_key=True)
-    type = sa.Column(sa.String)
-def extract_text(log):
-    # Use a regular expression to find the text after 'text': ' and before the next '
-    match = re.search(r"'text': '([^']*)'", log)
-    if match:
-        return match.group(1)
-    return None
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+load_dotenv()
 
 def remove_emoji(text):
-    #removes regular emojis
     RE_EMOJI = re.compile(u'([\U00002600-\U000027BF])|([\U0001f300-\U0001f64F])|([\U0001f680-\U0001f6FF])')
     text = RE_EMOJI.sub(r'', text)
-    #returns the emojis of the format [emoji](img|string1|string2)
     return re.sub(r'\[.*?\)', '', text)
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    ticker = request.json
-    
-    # print(json.dumps({"message": "Data received", "data": ticker}))
-    tkr = ticker.get('text')
-    valid_ticker=True
-    
-    #accept input from react
-    company = yf.Ticker(tkr)
     try:
-        company_name = company.info['longName'].split(" ")[0].split(".")[0].lower()
-        getComments(subreddit=reddit.subreddit("all"),text=company_name)
-    except:
-        valid_ticker=False
-        print("Ticker does not exist")
-    # print(company)
-    # getComments(subreddit=reddit.subreddit("all"),text=company)
-    return json.dumps({"message": "Data received", "data": ticker})
+        search_term = request.json.get('text', '').lower()
+        posts = reddit.subreddit("stocks").search(search_term, limit=30)
+        pos, neg, neu = 0, 0, 0
+        post_list = []
+        post_sentiments = []
+        sentiment_values = []
+        for post in posts:
+            title = getattr(post, 'title', '')
+            body = getattr(post, 'selftext', '')
+            text = f"{title} {body}"
+            analysis = TextBlob(text)
+            polarity = analysis.sentiment.polarity
+            sentiment_values.append(polarity)
+            if polarity > 0.1:
+                sentiment = "Bullish"
+                pos += 1
+            elif polarity < -0.1:
+                sentiment = "Bearish"
+                neg += 1
+            else:
+                sentiment = "Neutral"
+                neu += 1
+            post_list.append({"title": title, "body": body})
+            post_sentiments.append(sentiment)
+        # Determine overall sentiment
+        if pos > neg:
+            overall = "Bullish"
+        elif neg > pos:
+            overall = "Bearish"
+        else:
+            overall = "Neutral"
+        return json.dumps({
+            "posts": post_list,
+            "overall": overall,
+            "post_sentiments": post_sentiments,
+            "sentiment_values": sentiment_values
+        })
+    except Exception as e:
+        print(f"Reddit/TextBlob error: {e}")
+        return json.dumps({"error": f"Reddit/TextBlob error: {str(e)}"}), 500
 
-class ExampleSchema(mongoose.Document):
-    ticker = mongoose.StringField(required=True)
-    sentiments = mongoose.ListField(mongoose.IntField(), required=True)
-    latest_sentiment = mongoose.StringField(required=True)
-
-    meta = {
-        'collection': 'sentiment'  # Name of the collection in MongoDB
-    }
-
-def getComments(subreddit, text) -> None:  
-    client = OpenAI(api_key=YOUR_API_KEY, base_url="https://api.perplexity.ai") 
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                "You are an expert in marketing and assessing the sentiment of reviews. I am going to give you reviews to respond with only 'positive', 'negative', or 'neutral' towards the use of " + text + ". If you cannot create content about the review, rate it as neutral"
-            ),
-        },
-        {
-            "role": "user",
-            "content": (
-                ""
-            ),
-        },
-    ]
-    
-    for comment in subreddit.stream.comments():
-        if text in comment.body.lower():
-            comment.body = remove_emoji(comment.body)
-            messages[1]["content"] = comment.body
-            response = client.chat.completions.create(
-                model="llama-3.1-8b-instruct",
-                messages=messages,
-            )
-            analysis = response.choices[0].message.content
-            print(analysis)
-            if not (analysis == 'Neutral' or analysis == 'Positive' or analysis == 'Negative'):
-                continue
-            try:
-                number = 0 if analysis == 'Neutral' else 1 if analysis == 'Positive' else -1
-                sentiments.append(number)
-                # producer.send("redditcomments", value=comment_json)
-                comment_json = {
-                    "tkr": tkr,
-                    "sentiment": sentiments,
-                    "latestSentiment": analysis
-                }
-                collection_name.insert_one(comment_json)
-                print(number)
-                # Save the document to the database
-            except Exception as e:
-                print("An error occurred:", str(e))
-                return json
-
-# Run the Flask app and start the POST request loop in a separate thread
 if __name__ == "__main__":
-    tkr = ""
+    CLIENT_ID = os.getenv("CLIENT_ID")
+    CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+    PASSWORD = os.getenv("PASSWORD")
+    USER_AGENT = os.getenv("USER_AGENT")
+    USERNAME = os.getenv("USERNAME")
     reddit = praw.Reddit(
-        client_id="_lXa7uHKe5fOpKVnOQlktA",
-        client_secret="OsWBMbhI5QO6fQdBw-WsGYnwDiHeiw",
-        password="DJAJASFINANCIALSERVICES",
-        user_agent="testscript by u/fakebot3",
-        username="Sad_Warning869",
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET,
+        password=PASSWORD,
+        user_agent=USER_AGENT,
+        username=USERNAME,
         ratelimit_seconds=.75)
-    sentiments = []
-    YOUR_API_KEY = "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"
-    uri =   "mongodb+srv://ashritramanala:X2f1pLPy48ZFal1s@vandyhackscluster.h7isr.mongodb.net/?retryWrites=true&w=majority&appName=VandyHacksCluster"
-    client = MongoClient(uri, server_api=ServerApi('1'))
-    db = client['test']
-    collection_name = db['sentiments']
-           # Save the document to the database
-    # example_document.save()
-    print("Document Saved")    
-    # Start the POST request function in a background thread
-    # post_request_thread = threading.Thread(target=send_json_to_nodejs)
-    # post_request_thread.daemon = True  # Ensure thread exits when Flask app stops
-    # post_request_thread.start()
-    # mongoose.connect("mongodb+srv://ashritramanala:X2f1pLPy48ZFal1s@vandyhackscluster.h7isr.mon godb.net/?retryWrites=true&w=majority&appName=VandyHacksCluster")
- 
-    # Start the Flask app
     app.run(debug=True)
-
