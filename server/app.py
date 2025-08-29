@@ -25,7 +25,7 @@ def index():
 def submit():
     try:
         search_term = request.json.get('text', '').lower()
-        posts = reddit.subreddit("stocks").search(search_term, limit=30)
+        posts = reddit.subreddit("stocks").search(search_term, limit=1000)
         pos, neg, neu = 0, 0, 0
         post_list = []
         post_sentiments = []

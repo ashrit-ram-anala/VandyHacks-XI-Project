@@ -46,11 +46,13 @@ npm i
 ```
 npm run dev
 ```
+in client folder
 
 **Run Backend App With:**
 ```
 python3 app.py
 ```
+in server folder
 
 # Preview
 <img width="1440" height="775" alt="Screenshot 2025-08-29 at 1 09 09 AM" src="https://github.com/user-attachments/assets/965ab081-d7f4-4e45-905f-754ab443d7f4" />
